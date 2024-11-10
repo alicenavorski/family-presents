@@ -22,7 +22,17 @@
             <dd class="col-sm-9">{{ gift.owner_name }}</dd>
             <dt class="col-sm-3">Où</dt>
             <dd class="col-sm-9">{{ gift.location }}</dd>
-
+            
+            {% if gift.notes %}
+                <dt class="col-sm-3">Notes</dt>
+                <dd class="col-sm-9">
+                    <details>
+                        <summary style="color: rgb(0, 123, 255)">Afficher les précisions</summary>
+                        {{ gift.notes }}
+                    </details>
+                </dd>
+            {% endif %}
+            
             {% if gift.price %}
                 <dt class="col-sm-3">Prix</dt>
                 <dd class="col-sm-9">{{ gift.price }} €
