@@ -360,6 +360,7 @@ a:active {
 
 #toggle:checked ~ .notes {
   white-space: normal;
+  word-wrap: break-word;
   overflow: visible;
 }
 
