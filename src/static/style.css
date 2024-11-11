@@ -161,7 +161,7 @@ a:active {
   margin: 30px;
   min-height: 400px;
   vertical-align: top;
-  width: 1000px;
+  flex-grow: 1;
 }
 
 .addgift h1,
