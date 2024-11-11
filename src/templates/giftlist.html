@@ -26,13 +26,17 @@
             {% if gift.notes %}
                 <dt class="col-sm-3">Notes</dt>
                 <dd class="col-sm-9">
-                    <details>
-                        <summary style="color: rgb(0, 123, 255)">Afficher les précisions</summary>
-                        {{ gift.notes }}
-                    </details>
+                    <input type="checkbox" id="toggle">
+                    <div class="notes">{{ gift.notes }}</div>
+                    <label for="toggle" class="more toggle-button btn btn-link p-0">
+                        Afficher plus
+                    </label>
+                    <label for="toggle" class="less toggle-button btn btn-link p-0">
+                        Afficher moins
+                    </label>
                 </dd>
             {% endif %}
-            
+
             {% if gift.price %}
                 <dt class="col-sm-3">Prix</dt>
                 <dd class="col-sm-9">{{ gift.price }} €
