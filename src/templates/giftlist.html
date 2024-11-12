@@ -4,7 +4,7 @@
 <h2>{{ title }}</h2>
 <div class="gift-container">
     {% for gift in gifts %}
-        <div class="gift-box">
+        <div class="gift-box d-flex flex-column">
             {% if gift.owner == userid %}
                 <span onclick="popDeleteGift('{{gift._id}}', '{{gift.title}}');"><i class="fas fa-times delete-cross"></i></span>
 
@@ -20,18 +20,20 @@
             <dl class="row gift-details">
                 <dt class="col-sm-3">Pour</dt>
                 <dd class="col-sm-9">{{ gift.owner_name }}</dd>
+            {% if gift.location %}
                 <dt class="col-sm-3">Où</dt>
                 <dd class="col-sm-9">{{ gift.location }}</dd>
+            {% endif %}
                 
                 {% if gift.notes %}
                     <dt class="col-sm-3">Notes</dt>
                     <dd class="col-sm-9">
                         <input type="checkbox" id="toggle">
                         <div class="notes">{{ gift.notes }}</div>
-                        <label for="toggle" class="more toggle-button btn btn-link p-0">
+                        <label for="toggle" class="more toggle-button btn btn-link p-0 m-0">
                             Afficher plus
                         </label>
-                        <label for="toggle" class="less toggle-button btn btn-link p-0">
+                        <label for="toggle" class="less toggle-button btn btn-link p-0 m-0">
                             Afficher moins
                         </label>
                     </dd>
@@ -74,9 +76,10 @@
                     <dt class="col-sm-3" style="visibility: hidden;">Placeholder</dt>
                 {% endif %}
             </dl>
+            <div class="spacer"></div>
 
             {% if gift.owner != userid and gift.price and gift.remaining_price > 0 %}
-                <button type="button" class="btn btn-primary btn-participate" id="btn-participate-{{ loop.index }}" onclick="participate({{ loop.index }});">Participer</button>
+                <button type="button" class="btn btn-primary btn-participate align-self-center" id="btn-participate-{{ loop.index }}" onclick="participate({{ loop.index }});">Participer</button>
 
                 <form class="form-gift" method="POST" action="/participate">
                     <div class="div-gift" id="div-gift-{{ loop.index }}">

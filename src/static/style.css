@@ -252,6 +252,10 @@ a:active {
   margin-bottom: 0px;
 }
 
+.spacer {
+  flex-grow: 1;
+}
+
 .btn-participate,
 .btn-gift {
   float: left;
